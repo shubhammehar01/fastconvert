@@ -1,0 +1,40 @@
+<div class="nav">
+  <input type="checkbox" id="nav-check">
+  <div class="nav-header">
+    <div class="nav-title">
+      <a href="index" id="brand">FastConvert.xyz</a>
+    </div>
+  </div>
+  <div class="nav-btn" onclick="fun()">
+    <label for="nav-check">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </div>
+
+  <div class="nav-links">
+    <a href="index">Home</a>
+    <a href="contact">Contact</a>
+    <a href="about">About</a>
+    {% if email %}
+    <a href="account">Account</a>
+    {% else %}
+    <a href="login">Login</a>
+    <a href="signup">Signup</a>
+    {% endif %}
+    
+  </div>
+</div>
+</br>
+<div class="content">
+  {% block navbar %}
+  {% endblock navbar %}
+
+</div>
+</br>
+<footer>
+  <div class="footer">
+    <p>© Copyright 2011-2021 <a href="index" style="text-decoration: none;">fastconvert.xyz</a> All rights reserved.</p>
+  </div>
+</footer>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="image convert,free image convert,image convert to jpg,image convert to pdf,image converter,image convert to 20kb,image convert to png,image converter jpeg to jpg,image convert to text,image convert into pdf,image convert to jpg 200 kb,image convert jpeg to jpg,image convert a4 size,image convert as pdf,how to convert an image to pdf,how to convert an image to svg,how to convert an image to jpg,how to convert an image to png,image convert by jpg,image convert by pdf,image convert bmp,bitmap image convert to pdf,bulk image convert to pdf,bulk image convert,bulk image convert to jpg,jpg to png,png to jpg,image to pdf,img to pdf">
+  <meta name="description" content="fastconvert.xyz is online application which converts image from one format to another (eg. jpg to png, png to
+  jpg, jpg to pdf and many more). This Image Converter supports converting image to the following formats: JPG,
+  PNG,WEBP, PDF, GIF, BMP, TIFF etc">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7608727426286029"
+     crossorigin="anonymous"></script>
+  <title>Image Converter Online Free Download</title>
+  <link rel="stylesheet" href="static/css/navbar.css">
+
+  <!-- <script src="static/js/navbar.js"></script> -->
+  <link rel="stylesheet" href="static/css/index.css">
+</head>
+
+<body>
+  {% extends "navbar.html" %}
+  {% block navbar %}
+  <div class="container">
+    <div class="btn">
+      <p>fastconvert.xyz is online application which converts image from one format to another (eg. jpg to png, png to
+        jpg, jpg to pdf and many more). This Image Converter supports converting image to the following formats: JPG,
+        PNG,WEBP, PDF, GIF, BMP, TIFF etc.</p>
+      <button onclick="img()" id="imgbtn">Image Conversion</button>
+      <!-- <button onclick="pdf()" id="pdfbtn">Pdf Conversion</button> -->
+    </div>
+  </div>
+  <div class="img-content">
+    <form action="index" method="post" id="myform" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="images" class="drop-container">
+        <span class="drop-title">Drop files here</span>
+        or
+        <input type="file" id="imageInput" name="img" accept="image/*" multiple required>
+      </label>
+      <div id="imagePreview"></div>
+      <div id="selectlabel">
+        <select name="select" id="selectbtn" required>
+          <option value="">selectanyone</option>
+          <option value="png">.png</option>
+          <option value="jpg">.jpg or jpeg</option>
+          <option value="webp">.webp</option>
+          <option value="pdf">.pdf</option>
+          <option value="gif">.gif</option>
+          <option value="tiff">.tiff</option>
+          <option value="bmp">.bmp</option>
+        </select>
+        <input type="submit" class="submit" value="Convert" />
+    </form>
+    {% if context %}
+    <div class="item-container">
+
+      {% for i,j in context.items %}
+      <div class="item">
+        {% if forpdf %}
+        <iframe src="{{j}}" type="application/pdf" width="150px" height="175px"></iframe>
+
+        {% else %}
+        <img src="{{j}}" alt="Image 1">
+        {% endif %}
+        <p>{{i}}</p>
+        <a href="{{j}}" download class="download-button">Download</a>
+      </div>
+
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+  <script>
+    const imageInput = document.getElementById("imageInput");
+    const imagePreview = document.getElementById("imagePreview")
+    imageInput.addEventListener("change", function () {
+      for (let i = 0; i < imageInput.files.length; i++) {
+        const reader = new FileReader()
+        reader.onload = function () {
+          const image = document.createElement("img");
+          const head = document.createElement("p");
+          head.innerHTML = imageInput.files[i].name;
+          image.src = reader.result;
+          imagePreview.appendChild(head);
+          imagePreview.appendChild(image)
+
+          imagePreview.appendChild(document.createElement("br"));
+          // imagePreview.appendChild(document.createElement("hr"));
+        }
+        reader.readAsDataURL(imageInput.files[i]);
+      }
+    });
+    var a = 0;
+    function fun() {
+
+      if (a % 2 == 0) {
+        document.getElementById('myform').style.display = 'none';
+        a++;
+      }
+      else {
+        document.getElementById('myform').style.display = 'block';
+        a++;
+      }
+      console.log('hello wol')
+    }
+    function img() {
+      document.getElementById('pdfbtn').style.cssText = 'color:#51167855;';
+      document.getElementById('imgbtn').style.cssText = 'color:rgb(4, 118, 84);';
+    }
+    function pdf() {
+      document.getElementById('pdfbtn').style.cssText = 'color:rgb(4, 118, 84);';
+      document.getElementById('imgbtn').style.cssText = 'color:#51167855;';
+    }
+  </script>
+  {% endblock navbar %}
+
+
+
+</body>
+
+</html>

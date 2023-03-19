@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp | fastconvert.xyz</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7608727426286029"
+     crossorigin="anonymous"></script>
+     <meta name="keywords" content="image convert,free image convert,image convert to jpg,image convert to pdf,image converter,image convert to 20kb,image convert to png,image converter jpeg to jpg,image convert to text,image convert into pdf,image convert to jpg 200 kb,image convert jpeg to jpg,image convert a4 size,image convert as pdf,how to convert an image to pdf,how to convert an image to svg,how to convert an image to jpg,how to convert an image to png,image convert by jpg,image convert by pdf,image convert bmp,bitmap image convert to pdf,bulk image convert to pdf,bulk image convert,bulk image convert to jpg,jpg to png,png to jpg,image to pdf,img to pdf">
+  <meta name="description" content="fastconvert.xyz is online application which converts image from one format to another (eg. jpg to png, png to
+  jpg, jpg to pdf and many more). This Image Converter supports converting image to the following formats: JPG,
+  PNG,WEBP, PDF, GIF, BMP, TIFF etc">
+  <link rel="stylesheet" href="static/css/signup.css">
+  <link rel="stylesheet" href="static/css/navbar.css">
+
+</head>
+
+<body>
+    {% extends "navbar.html" %}
+    {% block navbar %}
+
+    <div class="container">
+        <img src="static/img/login.webp"alt="img not found">
+        <form action="/signup" method="post">
+            {% csrf_token %}
+
+            <label for="fname">First-name : </label>
+            <input type="text" name="fname" placeholder="enter user first name" value="{{fname}}" required>
+            <br><br>
+            <label for="lname">Last Name : </label>
+            <input type="text" name="lname" placeholder="enter user last name" value="{{lname}}" required>
+            <br><br>
+            <label for="phone_no">Phone No. : </label>
+            <input type="text" name="number" placeholder="enter user phone number" value="{{phone}}" required>
+            <br><br>
+            <label for="Email">valid Email : </label>
+            <input type="email" name="email" placeholder="enter user email" value="{{email}}" required>
+            <br><br>
+            <label for="password">create Password : </label>
+            <input type="password" name="password" placeholder="enter user password" value="{{password}}" required>
+            <br><br>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}" {% endif %} style="color:red;">{{ message }}</li>
+                    {% endfor %}
+            </ul>
+            {% endif %}
+            <input type="submit" class="btn btn-outline-primary">
+        </form>
+    </div>
+    {% endblock navbar %}
+
+
+</body>
+
+</html>

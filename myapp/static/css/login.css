@@ -1,0 +1,27 @@
+.container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+input {
+    width: 90%;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+label {
+    font-size: 15px;
+}
+
+.container img {
+    margin-bottom: 50px;
+    width: 50%;
+    height: 50%;
+}
+
+.container form {
+    margin-bottom: 100px;
+}
+#btn{
+    width: 50%;
+}

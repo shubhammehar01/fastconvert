@@ -1,0 +1,23 @@
+.container{
+    text-align: center;
+}
+input ,textarea{
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+}
+label{
+    font-size: 20px;
+}
+.container img{
+    margin-bottom: 50px;
+    width: 60%;
+    height: 70%;
+    border-radius: 10px;
+}
+.container form{
+    margin-bottom: 100px;
+}
+.btn {
+    width: 80%;
+}
